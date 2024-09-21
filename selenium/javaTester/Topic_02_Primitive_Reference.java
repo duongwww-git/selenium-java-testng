@@ -13,7 +13,7 @@ public class Topic_02_Primitive_Reference {
         System.out.println("X = " + x);
         System.out.println("Y = " + y);
 
-        //classs
+        //class
         // Instance 1
         Topic_02_Primitive_Reference c = new Topic_02_Primitive_Reference();
         c.x = 42;
