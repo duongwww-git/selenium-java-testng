@@ -69,6 +69,14 @@ public class HW2_Topic_05_By_Locator_1_XPath {
 
     }
 
+    @Test
+    public void TC_04_button() {
+        driver.get("https://demo.nopcommerce.com/register?returnUrl=/");
+        By registerButton = By.xpath("//input[@id='register-button']");
+
+        System.out.println(registerButton);
+    }
+
     @AfterClass
     public void afterClass() {
         driver.quit();
