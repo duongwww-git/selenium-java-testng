@@ -29,7 +29,7 @@ public class Topic_10_WebDriverCommands {
         // dong browser?
         driver.close();
 
-        driver.findElement(By.cssSelector(""))
+        driver.findElement(By.cssSelector(""));
 
     }
 
