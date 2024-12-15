@@ -40,8 +40,8 @@ public class Topic_13_BrowserExercise {
 
     }
 
-    public void TC_02_Verify_Page_Title() {
-
+    @Test
+    public void TC_02_VerifyTitle() {
         driver.get("https://live.techpanda.org/");
 
         // Click vao My Account tai footer
@@ -57,6 +57,7 @@ public class Topic_13_BrowserExercise {
 
     }
 
+    @Test
     public void TC_03_Navigation() {
         driver.get("https://live.techpanda.org/");
 
@@ -80,6 +81,7 @@ public class Topic_13_BrowserExercise {
 
     }
 
+    @Test
     public void TC_04_Page_Source() {
         driver.get("https://live.techpanda.org/");
 
@@ -87,7 +89,7 @@ public class Topic_13_BrowserExercise {
         driver.findElement(By.cssSelector("div.footer a[title='My Account']")).click();
 
         // Tuyet doi --> equal = bang nhau
-        Assert.assertEquals(driver.getTitle(),"Customer Login");
+        Assert.assertEquals(driver.getTitle(), "Customer Login");
 
         // Tuong doi --> assert True/ False
         Assert.assertTrue(driver.getPageSource().contains("Login or Create an Account"));
@@ -98,12 +100,6 @@ public class Topic_13_BrowserExercise {
         Assert.assertTrue(driver.getPageSource().contains("Create an Account"));
 
     }
-
-    @Test
-    public void TC_02() {
-
-    }
-
     @AfterClass
     public void afterClass() {
         driver.quit();
