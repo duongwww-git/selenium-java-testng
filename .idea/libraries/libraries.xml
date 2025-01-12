@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="libraries">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../1-softwares/selenium-server-4.24.0.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../1-softwares/Set up environment MAC OS/testng-7.10.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../1-softwares/Set up environment MAC OS/selenium-server-4.27.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
