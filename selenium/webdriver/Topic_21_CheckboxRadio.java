@@ -72,8 +72,6 @@ public class Topic_21_CheckboxRadio {
 
     @Test
     public void TC_03_CheckboxSelectAll() throws InterruptedException {
-
-
         driver.get("https://automationfc.github.io/multiple-fields/");
         // scroll into view
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.cssSelector("li#id_52")));
@@ -111,16 +109,60 @@ public class Topic_21_CheckboxRadio {
             }
         }
 
-
-
         // 4 - Verify
         for (WebElement checkbox: allCheckboxes) {
         if (checkbox.getDomAttribute("value").equals("Fainting Spells")) {
             Assert.assertTrue(checkbox.isSelected());
             }
         }
-
     }
+
+    @Test
+    public void TC_04_Angular() {
+        //1 - click radio button "Summer" & verify
+        driver.get("https://material.angular.io/components/radio/examples");
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//label[text()='Pick your favorite season']/parent::radio-ng-model-example")));
+        By summerRadio = By.xpath("//label[text()='Summer']/preceding-sibling::div[@class='mdc-radio']//input");
+        if (!driver.findElement(summerRadio).isSelected()) {
+            driver.findElement(summerRadio).click();
+        }
+        //2 - click "Checked" & "Indetermined" & verify
+        driver.get("https://material.angular.io/components/checkbox/examples");
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//h2[text()='Checkbox configuration']/parent::mat-card-content")));
+        List<WebElement> CheckboxConfigOptions = driver.findElements(By.xpath("//h2[text()='Checkbox configuration']/parent::mat-card-content/section[1]/child::mat-checkbox/descendant::input"));
+
+            //2.1 - click if unselected
+        for (WebElement checkbox : CheckboxConfigOptions) {
+            if (checkbox.getAttribute("id").equals("mat-mdc-checkbox-1-input") && !checkbox.isSelected()) {
+                checkbox.click();
+            }
+        }
+        for (WebElement checkbox : CheckboxConfigOptions) {
+            if (checkbox.getAttribute("id").equals("mat-mdc-checkbox-0-input") && !checkbox.isSelected()) {
+                checkbox.click();
+            }
+        }
+            //2.2 - verify selected
+        for (WebElement checkbox : CheckboxConfigOptions) {
+            Assert.assertTrue(checkbox.isSelected());
+        }
+            //2.3 - deselect
+        for (WebElement checkbox : CheckboxConfigOptions) {
+            if (checkbox.getAttribute("id").equals("mat-mdc-checkbox-1-input") && checkbox.isSelected()) {
+                checkbox.click();
+            }
+        }
+        for (WebElement checkbox : CheckboxConfigOptions) {
+            if (checkbox.getAttribute("id").equals("mat-mdc-checkbox-0-input") && checkbox.isSelected()) {
+                checkbox.click();
+            }
+        }
+            //2.4 - verify deslected
+        for (WebElement checkbox : CheckboxConfigOptions) {
+            Assert.assertTrue(!checkbox.isSelected());
+        }
+    }
+
     @AfterClass
     public void afterClass() {
         driver.quit();
