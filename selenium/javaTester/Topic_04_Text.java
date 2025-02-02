@@ -6,17 +6,18 @@ import java.util.Random;
 
 public class Topic_04_Text {
     public static void main(String[] args) {
-        String fullName = "Automation FC";
-        System.out.println(fullName);
+        String authenLink = "https://the-internet.herokuapp.com/basic_auth";
 
-        fullName = "Automation Testing";
-        System.out.println(fullName);
+        String username = "admin";
+        String password = "admin";
 
-        String textItem = "\n" +
-                "      Second Option\n" +
-                "      ";
+        String[] text = authenLink.split("//");
+        System.out.println(text[0]);
+        System.out.println(text[1]);
 
-        Assert.assertEquals(textItem.trim(), "Second Option");
-
+        authenLink = text[0] + "//" + username + ":" + password + "@" + text[1];
+        System.out.println(authenLink);
     }
 }
+
+
