@@ -17,6 +17,9 @@ public class Topic_04_Text {
 
         authenLink = text[0] + "//" + username + ":" + password + "@" + text[1];
         System.out.println(authenLink);
+
+        String osName = System.getProperty("os.name");
+        System.out.println(osName);
     }
 }
 
